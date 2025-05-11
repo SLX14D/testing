@@ -30,11 +30,27 @@ class Human:
             print(f"У {self.name} нет питомцев чтобы играть с ними")
 
 class House:
-    def __init__(self, adress, owner);
+    def __init__(self, adress, owner):
         self.adress = adress
         self.owner = owner
-        self.people = []
-    def people()
+        self.peoples = []
+    def move_in(self, human):
+        if isinstance(human, Human):
+            print("you cant move in :(")
+        else:
+            self.peoples.append(human)
+            print(f"Переезд был сделан")
+
+    def who_lives(self):
+        if self.peoples:
+            print("Тут живут:")
+            for people in self.people:
+                print(people.name)
+                if people.pets:
+                    for pet in people.pets:
+                        print(pet.name)
+        else:
+            print("Никого нет")
 
 murzik = Pet("Murzik", "Kot", "Мяу")
 bob = Human("Bob", 24)
@@ -42,3 +58,8 @@ bob = Human("Bob", 24)
 bob.play_with_pets()
 bob.getpet(murzik)
 bob.play_with_pets()
+
+dom1 = House("Shevchenko 10")
+dom1.who_lives()
+dom1.move_in(bob)
+dom1.who_lives()
